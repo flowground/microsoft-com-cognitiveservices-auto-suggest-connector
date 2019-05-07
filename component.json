@@ -1,0 +1,55 @@
+{
+    "title": "AutoSuggest Client",
+    "description": "Autosuggest supplies search terms derived from a root text sent to the service.  The terms Autosuggest supplies are related to the root text based on similarity and their frequency or ratings of usefulness in other searches. For examples that show how to use Autosuggest, see [Search using AutoSuggest](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference).",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/microsoft.com/cognitiveservices-AutoSuggest/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.cognitive.microsoft.com/bing/v7.0",
+                    "{Endpoint}",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "apiKeyHeader": {
+                "label": "Ocp-Apim-Subscription-Key (apiKeyHeader)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "AutoSuggest": {
+            "main": "./lib/actions/AutoSuggest.js",
+            "title": "The AutoSuggest API lets you send a search query to Bing and get back a list of query suggestions. This section provides technical details about the query parameters and headers that you use to request suggestions and the JSON response objects that contain them.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AutoSuggest.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
